@@ -1,34 +1,25 @@
 import React, { useState } from 'react'
 import Modal from './Modal'
-import Backdrop from './Backdrop'
-
 import './SingleView.css'
 
-function SingleView({ img, fileName, handleClick, select, handleImg }) {
+function SingleView({ img, fileName, handleClick }) {
 
-    const [showModal, setShowModal] = useState(false)
-
-    const handleBonus = () => {
-        setShowModal(true)
-    }
-
-
-    //mozda na ovaj img da uradis onClick handler
+    const [modalShow, setModalShow] = useState(false)
 
     return (
-        <div onClick={handleBonus}>
+        <div className='list' onClick={() => setModalShow(!modalShow)}>
             <div className="list-view" onClick={handleClick}>
                 <img src={img} alt={fileName} />
                 <p>{fileName}</p>
             </div>
-            {showModal && <Modal image={img} />}
-            {showModal && <Backdrop />}
+            <Modal
+                image={img}
+                shown={modalShow}
+                close={() => setModalShow(false)}
+            />
         </div>
 
     )
 }
 
 export default SingleView
-
-
-{/* <div className="list-view" onClick={(e) => handleClick(e.target)}> */ }

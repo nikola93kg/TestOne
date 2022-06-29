@@ -1,12 +1,14 @@
+.list {
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 12px;
+}
 .list-view {
   display: flex;
   padding-bottom: 12px;
-  border-bottom: 1px solid #eaeaea;
-  margin-bottom: 12px;
   overflow-x: hidden;
   cursor: pointer;
 }
-.list-view:last-of-type {
+.list:last-of-type {
   border-bottom: none !important;
 }
 .list-view img {
@@ -23,7 +25,4 @@
 }
 .pressed {
   opacity: 0.5;
-}
-hr {
-  border-bottom: 1px solid #eaeaea;
 }

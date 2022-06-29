@@ -4,12 +4,11 @@ import axios from 'axios'
 import Loading from './layout/Loading'
 import './ListView.css'
 
-
 // const client = axios.create({
 //     baseURL: "https://api.github.com/gists/public?page=2&per_page=30"
 // });
 
-const SingleViewLazy = lazy(() => import('./SingleView'));
+const SingleViewLazy = lazy(() => import('./SingleView'))
 
 function ListView() {
 
@@ -17,18 +16,17 @@ function ListView() {
     const [isLoading, setIsLoading] = useState(false)
     const [pageCount, setPageCount] = useState(2)
     const [dataPerPage] = useState(30)
-    const [isSelected, setIsSelected] = useState(false)
 
-    let limit = dataPerPage;
+    let limit = dataPerPage
 
     useEffect(() => {
 
         const getData = async () => {
             setIsLoading(true)
             const response = await fetch(`https://api.github.com/gists/public?page=${pageCount}&per_page=${limit}`)
-            const result = await response.json();
+            const result = await response.json()
             const total = response.headers.get('x-total-count') //nema nista u headers
-            setPageCount(Math.ceil(total / limit));
+            setPageCount(Math.ceil(total / limit))
             setData(result)
             setIsLoading(false)
         }
@@ -40,15 +38,15 @@ function ListView() {
         const res = await fetch(
             `https://api.github.com/gists/public?page=${currentPage}&per_page=${pageCount}`
         );
-        const data = await res.json();
+        const data = await res.json()
         return data;
     };
 
     const handlePageClick = async (data) => {
-        let currentPage = data.selected + 1;
+        let currentPage = data.selected + 1
         // setIsLoading(true)
-        const dataFromApi = await fetchData(currentPage);
-        setData(dataFromApi);
+        const dataFromApi = await fetchData(currentPage)
+        setData(dataFromApi)
         window.scrollTo(0, 0)
         // setIsLoading(false)
     };
@@ -67,9 +65,9 @@ function ListView() {
         <Suspense>
             <div className="list-container">
                 {data.map((item) => {
-                    const { files } = item;
+                    const { files } = item
 
-                    const fileNameArr = [];
+                    const fileNameArr = []
 
                     for (const key in files) {
                         const file = {
@@ -89,8 +87,6 @@ function ListView() {
                         isLoading={isLoading}
                         handleClick={handleClick}
                         id={item.id}
-                        select={isSelected}
-
                     />
                 })}
                 <ReactPaginate
@@ -112,7 +108,6 @@ function ListView() {
                     breakLinkClassName={"page-link"}
                     activeClassName={"active"}
                 />
-
             </div>
 
         </Suspense>
