@@ -8,3 +8,10 @@
   justify-content: flex-end;
   list-style-type: none;
 }
+.pagination {
+  /* border: 1px solid #f00; */
+  justify-content: flex-end;
+}
+.page-link {
+  border: none;
+}

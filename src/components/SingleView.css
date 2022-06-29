@@ -4,6 +4,7 @@
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 12px;
   overflow-x: hidden;
+  cursor: pointer;
 }
 .list-view:last-of-type {
   border-bottom: none !important;
@@ -12,12 +13,16 @@
   width: 74px;
   height: 74px;
   object-fit: cover;
+  background: #303133;
 }
 .list-view p {
   margin-left: 16px;
 }
 .active {
   color: #06a9f6;
+}
+.pressed {
+  opacity: 0.5;
 }
 hr {
   border-bottom: 1px solid #eaeaea;

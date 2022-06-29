@@ -4,6 +4,7 @@ import axios from 'axios'
 import Loading from './layout/Loading'
 import './ListView.css'
 
+
 // const client = axios.create({
 //     baseURL: "https://api.github.com/gists/public?page=2&per_page=30"
 // });
@@ -16,7 +17,7 @@ function ListView() {
     const [isLoading, setIsLoading] = useState(false)
     const [pageCount, setPageCount] = useState(2)
     const [dataPerPage] = useState(30)
-    const [select, setSelect] = useState({ id: '', selected: false })
+    const [isSelected, setIsSelected] = useState(false)
 
     let limit = dataPerPage;
 
@@ -49,11 +50,13 @@ function ListView() {
         const dataFromApi = await fetchData(currentPage);
         setData(dataFromApi);
         window.scrollTo(0, 0)
+        // setIsLoading(false)
     };
 
-
-    const handleClick = (data) => {
-        console.log(data)
+    const handleClick = (e) => {
+        e.currentTarget.classList.toggle('active')
+        e.currentTarget.classList.toggle('pressed')
+        console.log(e.currentTarget)
     }
 
     if (isLoading) {
@@ -86,18 +89,19 @@ function ListView() {
                         isLoading={isLoading}
                         handleClick={handleClick}
                         id={item.id}
-                        select={select.selected}
+                        select={isSelected}
+
                     />
                 })}
                 <ReactPaginate
-                    previousLabel={"previous"}
-                    nextLabel={"next"}
+                    previousLabel={"<"}
+                    nextLabel={">"}
                     breakLabel={"..."}
                     pageCount={37}
                     marginPagesDisplayed={2}
                     pageRangeDisplayed={3}
                     onPageChange={handlePageClick}
-                    containerClassName={"pagination justify-content-center"}
+                    containerClassName={"pagination"}
                     pageClassName={"page-item"}
                     pageLinkClassName={"page-link"}
                     previousClassName={"page-item"}
@@ -110,6 +114,7 @@ function ListView() {
                 />
 
             </div>
+
         </Suspense>
 
     )
