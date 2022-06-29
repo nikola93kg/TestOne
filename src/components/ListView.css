@@ -1,0 +1,10 @@
+.list-container {
+  border-bottom: 1px solid #eaeaea;
+  overflow-x: hidden;
+}
+.pagination-btns {
+  border: 1px solid #f00;
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+}

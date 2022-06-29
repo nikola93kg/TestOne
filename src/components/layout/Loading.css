@@ -1,0 +1,6 @@
+.loading {
+  height: 100vh;
+  font-size: 4em;
+  display: grid;
+  place-items: center;
+}
