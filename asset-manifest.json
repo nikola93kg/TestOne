@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/TestOne/static/css/main.1a8bc7ee.css",
+    "main.js": "/TestOne/static/js/main.7d15e4a3.js",
+    "static/css/973.4380877e.chunk.css": "/TestOne/static/css/973.4380877e.chunk.css",
+    "static/js/973.51c21a07.chunk.js": "/TestOne/static/js/973.51c21a07.chunk.js",
+    "index.html": "/TestOne/index.html",
+    "main.1a8bc7ee.css.map": "/TestOne/static/css/main.1a8bc7ee.css.map",
+    "main.7d15e4a3.js.map": "/TestOne/static/js/main.7d15e4a3.js.map",
+    "973.4380877e.chunk.css.map": "/TestOne/static/css/973.4380877e.chunk.css.map",
+    "973.51c21a07.chunk.js.map": "/TestOne/static/js/973.51c21a07.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a8bc7ee.css",
+    "static/js/main.7d15e4a3.js"
+  ]
+}
